@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Typography, Button, IconButton } from "@mui/material";
+import { Box, Stack, Typography, Button, IconButton } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Typed from "typed.js";
@@ -32,21 +32,32 @@ const HeroSection = () => {
   
   return (
     <Box
-      id="hero"
       sx={{
-        minHeight: { xs: "80vh", md: "100vh" },
         display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-        backgroundColor: "#0a192f",
-        color: "white",
+        flexDirection: { xs: "column", md: "row" },
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%',
+        maxWidth: '1280px',
+        mx: 'auto',
         px: 2,
         py: 6,
+        gap: 4,
+        backgroundColor: "#0a192f",
+        color: "white",
       }}
     >
-      <Container maxWidth="md">
+      <Box
+        sx={{
+          flex: 1,
+          minWidth: 0,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+        }}
+      >
         <Stack spacing={4} alignItems="center">
           <Box
             component="img"
@@ -100,8 +111,16 @@ const HeroSection = () => {
             </IconButton>
           </Stack>
         </Stack>
-      </Container>
-      <AboutSection />
+      </Box>
+      <Box
+        sx={{
+          width: { flex: 1, minWidth: 0, xs: "40%", md: "40%" },
+          px: { xs: 0, md: 4 },
+          py: { xs: 4, md: 0 },
+        }}
+      >
+        <AboutSection />
+      </Box>
     </Box>
   );
 };
