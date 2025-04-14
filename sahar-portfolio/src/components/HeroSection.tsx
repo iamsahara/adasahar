@@ -2,7 +2,7 @@ import { Box, Container, Stack, Typography, Button, IconButton } from "@mui/mate
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Typed from "typed.js";
-
+import AboutSection from "./AboutSection";
 import { useEffect, useRef } from "react";
 
 const HeroSection = () => {
@@ -34,22 +34,23 @@ const HeroSection = () => {
     <Box
       id="hero"
       sx={{
-        minHeight: "100vh",
+        minHeight: { xs: "80vh", md: "100vh" },
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        textAlign: "center",
         backgroundColor: "#0a192f",
         color: "white",
         px: 2,
-        py: { xs: 8, md: 12 },
-        textAlign: "center",
+        py: 6,
       }}
     >
       <Container maxWidth="md">
         <Stack spacing={4} alignItems="center">
           <Box
             component="img"
-            src="/assets/img/Image.jpeg"
+            src="src/assets/img/Image.jpeg"
             alt="Sahar Abdollahi"
             sx={{
               width: { xs: 150, sm: 180, md: 200 },
@@ -70,7 +71,7 @@ const HeroSection = () => {
 
           <Button
             variant="contained"
-            href="/assets/resume/sahar_resume.pdf"
+            href="src/assets/resume/sahar_resume.pdf"
             download
             startIcon={<LinkedInIcon />}
             sx={{ textTransform: "none", px: 4 }}
@@ -100,6 +101,7 @@ const HeroSection = () => {
           </Stack>
         </Stack>
       </Container>
+      <AboutSection />
     </Box>
   );
 };
